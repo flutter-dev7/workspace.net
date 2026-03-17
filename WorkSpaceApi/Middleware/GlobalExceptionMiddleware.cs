@@ -26,12 +26,12 @@ public class GlobalExceptionMiddleware
             _logger.LogInformation(ex, "Unhandled exception occurred");
 
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            context.Response.StatusCode = (int)HttpStatusCode.NotFound;
 
             var responce = new
             {
                 StatusCode = context.Response.StatusCode,
-                Message = "Internal Server Error",
+                Message = "Internal Clien Error",
                 Detail = ex.Message
             };
 
