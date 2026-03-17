@@ -87,6 +87,16 @@ public class RoomService : IRoomService
             {
                 connection.Open();
 
+                if(string.IsNullOrWhiteSpace(request.Name))
+                {
+                    throw new Exception("Name cannot be Empty");
+                }
+
+                if(request.Capacity <= 0)
+                {
+                    throw new Exception("Capacity cannot be 0");
+                }
+
                 string sql = @"
                 INSERT INTO Rooms (Name, Capacity, PricePerHour)
                 VALUES (@Name, @Capacity, @PricePerHour)";
@@ -113,6 +123,16 @@ public class RoomService : IRoomService
             using (NpgsqlConnection connection = _context.GetConnection())
             {
                 connection.Open();
+
+                if(string.IsNullOrWhiteSpace(request.Name))
+                {
+                    throw new Exception("Name cannot be Empty");
+                }
+
+                if(request.Capacity <= 0)
+                {
+                    throw new Exception("Capacity cannot be 0");
+                }
 
                 string sql = @"
                 UPDATE Rooms SET

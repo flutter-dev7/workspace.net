@@ -50,3 +50,4 @@ C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week2\exam\WorkSpaceApi
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week2\exam\WorkSpaceApi\obj\Debug\net10.0\WorkSpaceApi.pdb
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week2\exam\WorkSpaceApi\obj\Debug\net10.0\WorkSpaceApi.genruntimeconfig.cache
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week2\exam\WorkSpaceApi\obj\Debug\net10.0\ref\WorkSpaceApi.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week2\exam\WorkSpaceApi\obj\Debug\net10.0\WorkSpaceApi.sourcelink.json

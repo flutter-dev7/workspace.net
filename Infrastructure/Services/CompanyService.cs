@@ -86,6 +86,31 @@ public class CompanyService : ICompanyService
             {
                 connection.Open();
 
+                if(string.IsNullOrWhiteSpace(request.Name))
+                {
+                    throw new Exception("Name cannot be Empty");
+                }
+
+                if(string.IsNullOrWhiteSpace(request.Email))
+                {
+                    throw new Exception("Email cannot be Empty");
+                }
+
+                if(string.IsNullOrWhiteSpace(request.Phone))
+                {
+                    throw new Exception("Phone cannot be Empty");
+                }
+
+                if(!request.Phone.StartsWith("+"))
+                {
+                    throw new Exception("Phone cannot be start without +");
+                }
+
+                if(!request.Email.Contains("@"))
+                {
+                    throw new Exception("Email cannot be without @");
+                }
+
                 string sql = @"
                 INSERT INTO Companies (Name, Phone, Email)
                 VALUES (@Name, @Phone, @Email)";
@@ -112,6 +137,31 @@ public class CompanyService : ICompanyService
             using (NpgsqlConnection connection = _context.GetConnection())
             {
                 connection.Open();
+
+                if(string.IsNullOrWhiteSpace(request.Name))
+                {
+                    throw new Exception("Name cannot be Empty");
+                }
+
+                if(string.IsNullOrWhiteSpace(request.Email))
+                {
+                    throw new Exception("Email cannot be Empty");
+                }
+
+                if(string.IsNullOrWhiteSpace(request.Phone))
+                {
+                    throw new Exception("Phone cannot be Empty");
+                }
+
+                if(!request.Phone.StartsWith("+"))
+                {
+                    throw new Exception("Phone cannot be start without +");
+                }
+
+                if(request.Email.Contains("@"))
+                {
+                    throw new Exception("Email cannot be without @");
+                }
 
                 string sql = @"
                 UPDATE Companies SET

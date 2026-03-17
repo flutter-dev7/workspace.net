@@ -19,11 +19,11 @@ public class GlobalExceptionMiddleware
     {
         try
         {
-            await _next(context);
+            await _next(context); 
         }
         catch (System.Exception ex)
         {
-            _logger.LogInformation(ex, "Unhandled exception occurred");
+            _logger.LogInformation(ex, "Error in Server");
 
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.NotFound;

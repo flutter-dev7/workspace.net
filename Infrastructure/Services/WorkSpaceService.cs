@@ -118,6 +118,16 @@ public class WorkSpaceService : IWorkSpaceService
                 SELECT 1 FROM Rooms
                 WHERE Id = @RoomId";
 
+                if(string.IsNullOrWhiteSpace(request.Name))
+                {
+                    throw new Exception("Name cannot be Empty");
+                }
+
+                if(string.IsNullOrWhiteSpace(request.Type))
+                {
+                    throw new Exception("Type cannot be Empty");
+                }
+
                 var roomExists = await connection.ExecuteScalarAsync<int>(roomSql, new {request.RoomId});
 
                 if(roomExists == 0)
@@ -151,6 +161,27 @@ public class WorkSpaceService : IWorkSpaceService
             using (NpgsqlConnection connection = _context.GetConnection())
             {
                 connection.Open();
+
+                string roomSql = @"
+                SELECT 1 FROM Rooms
+                WHERE Id = @RoomId";
+
+                if(string.IsNullOrWhiteSpace(request.Name))
+                {
+                    throw new Exception("Name cannot be Empty");
+                }
+
+                if(string.IsNullOrWhiteSpace(request.Type))
+                {
+                    throw new Exception("Type cannot be Empty");
+                }
+
+                var roomExists = await connection.ExecuteScalarAsync<int>(roomSql, new {request.RoomId});
+
+                if(roomExists == 0)
+                {
+                    throw new Exception($"Room with Id = {request.RoomId} not found");
+                }
 
                 string sql = @"
                 UPDATE WorkSpaces SET

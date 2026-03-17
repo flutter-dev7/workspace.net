@@ -37,7 +37,6 @@ public class RequestLoggingMiddleware
 
             context.Response.StatusCode = 500;
             await context.Response.WriteAsync("Internal Server Error");
-
         }
     }
 }

@@ -99,6 +99,11 @@ public class BookingService : IBookingService
                     throw new Exception("StartTime must be less than EndTime");
                 }
 
+                if(request.StartTime <= DateTime.Now.TimeOfDay)
+                {
+                    throw new Exception("StartTime must be less than Now");
+                }
+
                 string companySql = @"
                 SELECT 1 FROM Companies
                 WHERE Id = @CompanyId";
@@ -167,6 +172,8 @@ public class BookingService : IBookingService
             using (NpgsqlConnection connection = _context.GetConnection())
             {
                 connection.Open();
+
+                
 
                 string sql = @"
                 UPDATE Bookings SET
