@@ -1,0 +1,12 @@
+using System;
+
+namespace Domain.Entities;
+
+public class WorkSpace
+{
+    public int Id { get; set; }
+    public int RoomId { get; set; }
+    public string Name { get; set; } = string.Empty; 
+    public string Type { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; }
+}
